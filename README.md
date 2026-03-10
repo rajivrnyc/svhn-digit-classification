@@ -126,6 +126,25 @@ train_losses_alex, val_losses_alex = train_model(
 **Test Accuracy: 96.07% | Test Loss: 0.1487**
 
 ### Comparison
+Comparison
+ModelAccuracyF1PrecisionRecallTest LossTime/SampleSimple CNN93.30%0.93290.93320.93300.2417~0.000394sAlexNet96.07%0.96070.96100.96070.1487~0.000401s
+AlexNet outperforms the Simple CNN across all metrics, owing to its deeper feature extraction and stronger regularization, at a minimal additional cost in training time per sample.
+
+Overfitting Prevention
+Both models use the following regularization strategies:
+
+Batch Normalization — stabilizes activations and acts as a mild regularizer
+Dropout — 10% in Simple CNN conv layers, 30% in FC layer; 50% in AlexNet FC layers
+Data Augmentation — reduces reliance on specific image characteristics
+Validation monitoring — loss and metrics tracked each epoch to detect divergence
+
+
+Technologies
+
+Python 3.x
+PyTorch & torchvision
+scikit-learn (metrics)
+NumPy / Matplotlib
 
 | Model | Accuracy | F1 | Precision | Recall | Test Loss | Time/Sample |
 |-------|----------|----|-----------|--------|-----------|---------
